@@ -21,7 +21,7 @@ pipeline {
                  label 'test-server'
             }
             steps {
-                 git 'https://github.com/Reechika/Devops.git'
+                 git 'https://github.com/Reechika/Devops-Project-I.git'
                  sh 'docker build -t php-app:${BUILD_NUMBER} .'
                  sh 'docker run -itd -p 8081:80 --name my-php-app-${BUILD_NUMBER} php-app:${BUILD_NUMBER}'
             }
