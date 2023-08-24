@@ -21,5 +21,3 @@
       - curl
       - software-properties-common
       - docker-ce
-
-#just for testing purpose of webhook integration between github & ... reechika. jenkins
