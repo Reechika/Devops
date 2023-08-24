@@ -22,16 +22,16 @@ pipeline {
             }
             steps {
                  git 'https://github.com/Reechika/Devops-Project-I.git'
-                 sh 'sudo docker build -t php-app:${BUILD_NUMBER} .'
-                 sh 'sudo docker run -itd -p 8081:80 --name my-php-app-${BUILD_NUMBER} php-app:${BUILD_NUMBER}'
+                 sh 'docker build -t php-app:${BUILD_NUMBER} .'
+                 sh 'docker run -itd -p 8081:80 --name my-php-app-${BUILD_NUMBER} php-app:${BUILD_NUMBER}'
             }
             post {
                 success {
                     echo "Container deployment successful!"
                 }
                 failure {
-                    sh 'sudo docker stop my-php-app-${BUILD_NUMBER}'
-                    sh 'sudo docker rm my-php-app-${BUILD_NUMBER}'
+                    sh 'docker stop my-php-app-${BUILD_NUMBER}'
+                    sh 'docker rm my-php-app-${BUILD_NUMBER}'
                 }
             }
             
